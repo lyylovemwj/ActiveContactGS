@@ -1,0 +1,24 @@
+name: Feature request
+description: Propose a focused method, evaluation, or infrastructure improvement.
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Which research or engineering limitation would this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the interface, scientific control, or implementation you suggest.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and risks
+      description: Note relevant alternatives, confounds, or compatibility concerns.

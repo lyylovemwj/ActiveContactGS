@@ -1,0 +1,17 @@
+name: active-contact-gs
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pytorch=2.8
+  - pytorch-cuda=12.8
+  - numpy=1.26.4
+  - matplotlib=3.7.5
+  - pillow>=10
+  - trimesh=4.7.1
+  - pytest=9.1.1
+  - pip
+  - pip:
+      - -e .

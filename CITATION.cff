@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying paper. Replace the placeholder contributor entry before public release."
+title: "ActiveContactGS: Active Bayesian Identification of Gaussian Physical Worlds"
+type: software
+version: 0.1.0
+date-released: 2026-08-27
+authors:
+  - name: "ActiveContactGS contributors"
+license: MIT
