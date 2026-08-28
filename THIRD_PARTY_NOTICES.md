@@ -8,4 +8,4 @@ The MIT License covers original ActiveContactGS code only.
 
 Users are responsible for complying with the current licenses and terms of external projects and datasets.
 
-The three PNG files in `assets/images/` are original ActiveContactGS diagrams or plots generated from project experiments; they do not reproduce figures from third-party papers.
+The five PNG files in `assets/images/` are original ActiveContactGS manuscript diagrams or plots; they do not reproduce figures from third-party papers. Their source snapshot and manuscript mapping are recorded in `assets/images/README.md`.

@@ -1,8 +1,9 @@
 # Public release checklist
 
-- [ ] Replace placeholder authors in `CITATION.cff` with the final paper author list.
-- [ ] Add the paper/preprint URL and repository URL.
-- [ ] Add private maintainer contacts to `SECURITY.md` and `CODE_OF_CONDUCT.md`.
+- [ ] Confirm that the `CITATION.cff` author list matches the final paper author list.
+- [ ] Add the paper/preprint URL and preferred paper citation once public.
+- [x] Record the repository URL in package and citation metadata.
+- [x] Route private vulnerability reports through GitHub Security Advisories.
 - [ ] Confirm that all code contributors approve the MIT License.
 - [ ] Re-check external dataset and upstream-project licenses.
 - [ ] Run all tests on a CUDA GPU.

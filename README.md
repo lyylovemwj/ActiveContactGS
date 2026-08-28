@@ -1,10 +1,15 @@
 # ActiveContactGS
 
+[![CI](https://github.com/lyylovemwj/ActiveContactGS/actions/workflows/ci.yml/badge.svg)](https://github.com/lyylovemwj/ActiveContactGS/actions/workflows/ci.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 Research code for **Contact Geometry Is a Latent Variable: Active Bayesian Identification of Gaussian Physical Worlds**.
 
 <p align="center">
-  <img src="assets/images/method_overview.png" alt="ActiveContactGS method overview" width="100%">
+  <img src="assets/images/fig1_method_overview.png" alt="Figure 1: ActiveContactGS method overview" width="100%">
 </p>
+<p align="center"><em>Figure 1. Geometry and interaction history form a hybrid posterior used for counterfactual information-gain action selection.</em></p>
 
 ActiveContactGS studies active rigid-body system identification from object-centric anisotropic Gaussian geometry. The codebase provides:
 
@@ -15,7 +20,7 @@ ActiveContactGS studies active rigid-body system identification from object-cent
 - pose-observation and Gaussian-video posterior models;
 - ID/OOD evaluation, geometry ablations, identifiability analysis, YCB contact preparation, and PIN-WM reproduction helpers.
 
-This lightweight GitHub package contains code, reproduction instructions, and three curated preview images. It does not include checkpoints, generated datasets, raw experimental results, or logs.
+This lightweight GitHub package contains code, reproduction instructions, and five figures extracted losslessly from the manuscript. It does not include checkpoints, generated datasets, raw experimental results, or logs.
 
 ## Quick Start
 
@@ -55,18 +60,32 @@ Experiment entry points are intentionally GPU-only. Use `scripts/quickstart.py` 
 
 ## Results at a glance
 
+<p align="center">
+  <img src="assets/images/fig3_sample_efficiency.png" alt="Figure 3: Sample efficiency and contact-normal fidelity" width="100%">
+</p>
+<p align="center"><em>Figure 3. Active probing reduces parameter error across ID and OOD splits; native anisotropic contact preserves contact normals far more accurately than sphere proxies.</em></p>
+
+### Geometry-aware interaction
+
 <table>
   <tr>
-    <td width="50%"><img src="assets/images/probe_budget.png" alt="Probe-budget identification result"></td>
-    <td width="50%"><img src="assets/images/geometry_active.png" alt="Geometry and active-probing interaction"></td>
+    <td width="38%"><img src="assets/images/fig5_anisotropic_contact.png" alt="Figure 5: Native anisotropic contact on Venus"></td>
+    <td width="62%"><img src="assets/images/fig7_cross_object.png" alt="Figure 7: Cross-object active probing"></td>
   </tr>
   <tr>
-    <td align="center">Active probing across 1–6 physical interactions</td>
-    <td align="center">Geometry fidelity × active probing</td>
+    <td align="center">Figure 5. Native contact versus sphere approximation</td>
+    <td align="center">Figure 7. Cup, bunny, and Venus active-probing sequences</td>
   </tr>
 </table>
 
-These are frozen preview plots from the submission experiments. Their raw result files are intentionally kept outside the lightweight Git repository; the commands required to reproduce them are documented below.
+<details>
+<summary><strong>Figure 4: geometry and action-selection ablation</strong></summary>
+<p align="center">
+  <img src="assets/images/fig4_geometry_ablation.png" alt="Figure 4: Geometry and action-selection ablation" width="90%">
+</p>
+</details>
+
+These are manuscript figures, not third-party illustrations. Their raw result files are intentionally kept outside the lightweight Git repository; the commands required to reproduce them are documented below. Figure provenance is recorded in [`assets/images/README.md`](assets/images/README.md).
 
 ## Full CUDA pipeline
 
@@ -99,7 +118,7 @@ The formal test suite exercises CUDA kernels and therefore requires a CUDA-capab
 python -m pytest -q
 ```
 
-Standard GitHub-hosted CPU runners perform installation, syntax checks, import checks, and test collection. Run all 26 tests locally or on a self-hosted GPU runner before tagging a release.
+Standard GitHub-hosted CPU runners execute two analytic smoke tests and skip 26 explicitly marked CUDA tests. A CUDA runner executes all 28 tests. Run the complete GPU suite before tagging a release.
 
 ## Repository structure
 
@@ -109,7 +128,7 @@ tests/                   CUDA-focused test suite
 scripts/                 Reproduction and external-asset helpers
 docs/                    Data, protocol, and reproducibility documentation
 assets/sources/          External-source provenance metadata
-assets/images/           Three curated README preview images
+assets/images/           Five losslessly extracted manuscript figures
 .github/                 CI and contribution templates
 ```
 

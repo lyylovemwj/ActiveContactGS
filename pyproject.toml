@@ -10,9 +10,17 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [{name = "Lei Yuyi"}]
+keywords = [
+  "3D Gaussian splatting",
+  "active learning",
+  "Bayesian inference",
+  "robotics",
+  "system identification",
+]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
   "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
@@ -24,10 +32,18 @@ dependencies = [
 [project.optional-dependencies]
 analysis = ["matplotlib>=3.7", "pillow>=10"]
 assets = ["trimesh>=4.0"]
-dev = ["pytest>=7.4"]
+dev = ["pytest>=7.4", "trimesh>=4.0"]
+
+[project.urls]
+Homepage = "https://github.com/lyylovemwj/ActiveContactGS"
+Repository = "https://github.com/lyylovemwj/ActiveContactGS"
+Issues = "https://github.com/lyylovemwj/ActiveContactGS/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+  "gpu: requires a CUDA-capable PyTorch runtime",
+]

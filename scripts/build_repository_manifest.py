@@ -40,7 +40,11 @@ def main() -> None:
         and path.suffix.lower() not in {".pyc", ".pyo", ".zip"}
     )
     with DESTINATION.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=("path", "bytes", "sha256"))
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=("path", "bytes", "sha256"),
+            lineterminator="\n",
+        )
         writer.writeheader()
         for path in paths:
             writer.writerow(

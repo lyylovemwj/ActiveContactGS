@@ -14,6 +14,7 @@ REQUIRED = (
     "README_CN.md",
     "LICENSE",
     "CITATION.cff",
+    "CHANGELOG.md",
     "pyproject.toml",
     "environment.yml",
     "REPOSITORY_MANIFEST.csv",
@@ -67,6 +68,7 @@ def main() -> None:
     private_key = re.compile(r"-----BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY-----")
     ssh_endpoint = re.compile(r"ssh\s+-p\s+\d+\s+\S+@", re.IGNORECASE)
     machine_path = re.compile(r"(?:[A-Za-z]:\\|/root/|/home/[^/< ]+/)")
+    personal_email = re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE)
 
     for path in ROOT.rglob("*"):
         if not path.is_file() or ".git" in path.parts:
@@ -85,6 +87,8 @@ def main() -> None:
             errors.append(f"embedded SSH endpoint: {relative}")
         if machine_path.search(content):
             errors.append(f"machine-specific absolute path: {relative}")
+        if personal_email.search(content):
+            errors.append(f"public email address: {relative}")
 
     if errors:
         raise SystemExit("repository verification failed:\n- " + "\n- ".join(errors))
