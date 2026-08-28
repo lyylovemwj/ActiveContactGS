@@ -1,0 +1,5 @@
+# Normalize line endings to LF for text files across platforms.
+* text=auto eol=lf
+
+# Treat these as binary and never modify.
+*.png binary

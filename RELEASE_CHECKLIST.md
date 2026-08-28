@@ -7,5 +7,6 @@
 - [ ] Re-check external dataset and upstream-project licenses.
 - [ ] Run all tests on a CUDA GPU.
 - [ ] Run `python scripts/verify_repository.py`.
+- [ ] Rebuild `REPOSITORY_MANIFEST.csv` and package with `python scripts/package_repository.py --force`.
 - [ ] Confirm that the Git history contains no checkpoints, datasets, results, credentials, or private reviewer material.
 - [ ] Tag the frozen version, for example `v0.1.0`.

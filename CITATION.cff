@@ -1,9 +1,19 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite the accompanying paper. Replace the placeholder contributor entry before public release."
+message: "If you use this software in your research, please cite it using the metadata in this file, and cite the accompanying paper once it is published."
 title: "ActiveContactGS: Active Bayesian Identification of Gaussian Physical Worlds"
 type: software
 version: 0.1.0
 date-released: 2026-08-27
 authors:
-  - name: "ActiveContactGS contributors"
+  - name: "Lei Yuyi"
+    email: "leiyuyi@mails.gdut.edu.cn"
+url: "https://github.com/lyylovemwj/ActiveContactGS"
+repository-code: "https://github.com/lyylovemwj/ActiveContactGS"
 license: MIT
+keywords:
+  - active learning
+  - system identification
+  - Gaussian geometry
+  - Bayesian inference
+# TODO: after the paper is public, add a `preferred-citation` block with the
+# paper title, full author list, and DOI/arXiv URL.

@@ -9,7 +9,7 @@ description = "Active Bayesian physical system identification for Gaussian world
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
-authors = [{name = "ActiveContactGS contributors"}]
+authors = [{name = "Lei Yuyi", email = "leiyuyi@mails.gdut.edu.cn"}]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "License :: OSI Approved :: MIT License",

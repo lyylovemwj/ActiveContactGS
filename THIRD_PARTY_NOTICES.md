@@ -7,3 +7,5 @@ The MIT License covers original ActiveContactGS code only.
 - **Related projects and papers**: source URLs and release-time provenance notes are listed in `assets/sources/manifest.csv`. A metadata entry is not a redistribution grant.
 
 Users are responsible for complying with the current licenses and terms of external projects and datasets.
+
+The three PNG files in `assets/images/` are original ActiveContactGS diagrams or plots generated from project experiments; they do not reproduce figures from third-party papers.
