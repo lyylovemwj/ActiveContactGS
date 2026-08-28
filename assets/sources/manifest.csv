@@ -1,0 +1,10 @@
+asset_id,type,title,source_url,license,status,intended_use
+pin_wm,paper,PIN-WM,https://arxiv.org/abs/2504.16693,check-arxiv-version,metadata-only,related-work
+contactgaussian_wm,paper,ContactGaussian-WM,https://arxiv.org/abs/2602.11021,check-arxiv-version,metadata-only,primary-baseline
+mro_gwm,paper,MRO-GWM,https://arxiv.org/abs/2606.01950,check-arxiv-version,metadata-only,primary-baseline
+persistgs,paper,PersistGS,https://openaccess.thecvf.com/content/CVPR2026W/GenRecon3d/html/Ramlal_PersistGS_Differentiable_Physics_for_Object_Permanence_in_4D_Gaussian_Splatting_CVPRW_2026_paper.html,check-cvf,metadata-only,related-work
+asid,code,ASID,https://github.com/WEIRDLabUW/asid,no-license-visible,metadata-only,active-system-id-baseline
+pin_wm,code,PIN-WM,https://github.com/XuAdventurer/PIN-WM,MIT,approved-to-clone,physics-grounded-baseline
+gscollision,dataset,GSCollision,https://huggingface.co/datasets/lishiqianhugh/GSCollision,license-not-declared,metadata-only-do-not-download,possible-evaluation-assets
+ycb16k,dataset,YCB Object and Model Set,https://ycb-benchmarks.s3.amazonaws.com/index.html,CC BY 4.0,approved-eight-object-subset,geometry-and-rendering-benchmark
+ngff,code,Neural Gaussian Force Field,https://github.com/lishiqianhugh/NeuralGaussianForceField,license-unverified,metadata-only-until-verified,dynamics-baseline
