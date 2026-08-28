@@ -20,14 +20,22 @@ IGNORED_PARTS = {
     "outputs",
     "third_party",
 }
+TEXT_SUFFIXES = {".cff", ".csv", ".html", ".js", ".md", ".py", ".sh", ".toml", ".txt", ".yaml", ".yml"}
 
 
-def sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for block in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(block)
-    return digest.hexdigest()
+def canonical_bytes(path: Path) -> bytes:
+    """Return stable bytes across Git checkouts with different line endings."""
+    content = path.read_bytes()
+    if path.suffix.lower() in TEXT_SUFFIXES:
+        content = content.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return content
+
+
+def is_ignored(path: Path) -> bool:
+    parts = path.relative_to(ROOT).parts
+    return bool(IGNORED_PARTS.intersection(parts)) or any(
+        part.endswith(".egg-info") for part in parts
+    )
 
 
 def main() -> None:
@@ -36,7 +44,7 @@ def main() -> None:
         for path in ROOT.rglob("*")
         if path.is_file()
         and path != DESTINATION
-        and not IGNORED_PARTS.intersection(path.relative_to(ROOT).parts)
+        and not is_ignored(path)
         and path.suffix.lower() not in {".pyc", ".pyo", ".zip"}
     )
     with DESTINATION.open("w", newline="", encoding="utf-8") as handle:
@@ -47,11 +55,12 @@ def main() -> None:
         )
         writer.writeheader()
         for path in paths:
+            content = canonical_bytes(path)
             writer.writerow(
                 {
                     "path": path.relative_to(ROOT).as_posix(),
-                    "bytes": path.stat().st_size,
-                    "sha256": sha256(path),
+                    "bytes": len(content),
+                    "sha256": hashlib.sha256(content).hexdigest(),
                 }
             )
     print(f"wrote {len(paths)} repository rows")

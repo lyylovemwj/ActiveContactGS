@@ -24,15 +24,16 @@ REQUIRED = (
 FORBIDDEN_DIRECTORIES = {"checkpoints", "figures", "outputs", "results", "third_party"}
 FORBIDDEN_SUFFIXES = {".ckpt", ".gif", ".mp4", ".pdf", ".pt", ".pth", ".tar", ".tgz", ".zip"}
 TEXT_SUFFIXES = {".cff", ".csv", ".html", ".js", ".md", ".py", ".sh", ".toml", ".yaml", ".yml"}
+MANIFEST_TEXT_SUFFIXES = TEXT_SUFFIXES | {".txt"}
 MAX_FILE_BYTES = 5 * 1024 * 1024
 
 
-def sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for block in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(block)
-    return digest.hexdigest()
+def canonical_bytes(path: Path) -> bytes:
+    """Return the same content on Windows and POSIX Git checkouts."""
+    content = path.read_bytes()
+    if path.suffix.lower() in MANIFEST_TEXT_SUFFIXES:
+        content = content.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return content
 
 
 def verify_manifest() -> list[str]:
@@ -46,9 +47,10 @@ def verify_manifest() -> list[str]:
             if not path.is_file():
                 errors.append(f"manifest file missing: {row['path']}")
                 continue
-            if path.stat().st_size != int(row["bytes"]):
+            content = canonical_bytes(path)
+            if len(content) != int(row["bytes"]):
                 errors.append(f"manifest size mismatch: {row['path']}")
-            if sha256(path) != row["sha256"]:
+            if hashlib.sha256(content).hexdigest() != row["sha256"]:
                 errors.append(f"manifest SHA-256 mismatch: {row['path']}")
     return errors
 
