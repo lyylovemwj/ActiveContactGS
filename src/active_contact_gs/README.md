@@ -6,7 +6,7 @@ This directory contains the **core method, training, evaluation, and analysis co
 
 ActiveContactGS studies **active rigid-body system identification** from object-centric anisotropic Gaussian geometry. In plain terms, the system figures out the physics of an unknown object by deciding which small contact actions to take next, and then uses the resulting interaction history to update a belief about the object's latent parameters.
 
-The package is organized around three tightly coupled ideas:
+The package is organized around three tightly coupled ideas: 
   
 1. **Native Gaussian geometry.** Objects are modelled with anisotropic Gaussian ellipsoids, and contact is computed directly on that geometry instead of being approximated by spheres. This preserves contact normals far more accurately.
 
