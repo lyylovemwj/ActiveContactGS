@@ -20,7 +20,7 @@ IGNORED_PARTS = {
     "outputs",
     "third_party",
 }
-TEXT_SUFFIXES = {".cff", ".csv", ".html", ".js", ".md", ".py", ".sh", ".toml", ".txt", ".yaml", ".yml"}
+TEXT_SUFFIXES = {".cff", ".csv", ".html", ".js", ".json", ".md", ".py", ".sh", ".tex", ".toml", ".txt", ".yaml", ".yml"}
 EXCLUDED_FILE_ENDINGS = (".pyc", ".pyo", ".zip", ".tar", ".tar.gz", ".tgz")
 
 

@@ -24,7 +24,7 @@ REQUIRED = (
 FORBIDDEN_DIRECTORIES = {"checkpoints", "figures", "outputs", "results", "third_party"}
 FORBIDDEN_SUFFIXES = {".ckpt", ".gif", ".mp4", ".pdf", ".pt", ".pth", ".tar", ".tgz", ".zip"}
 REVIEW_ASSET_ROOT = "paper_assets/iclr_review/"
-TEXT_SUFFIXES = {".cff", ".csv", ".html", ".js", ".md", ".py", ".sh", ".toml", ".yaml", ".yml"}
+TEXT_SUFFIXES = {".cff", ".csv", ".html", ".js", ".json", ".md", ".py", ".sh", ".tex", ".toml", ".yaml", ".yml"}
 MANIFEST_TEXT_SUFFIXES = TEXT_SUFFIXES | {".txt"}
 MAX_FILE_BYTES = 5 * 1024 * 1024
 
