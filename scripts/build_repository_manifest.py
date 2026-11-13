@@ -21,6 +21,7 @@ IGNORED_PARTS = {
     "third_party",
 }
 TEXT_SUFFIXES = {".cff", ".csv", ".html", ".js", ".md", ".py", ".sh", ".toml", ".txt", ".yaml", ".yml"}
+EXCLUDED_FILE_ENDINGS = (".pyc", ".pyo", ".zip", ".tar", ".tar.gz", ".tgz")
 
 
 def canonical_bytes(path: Path) -> bytes:
@@ -45,7 +46,7 @@ def main() -> None:
         if path.is_file()
         and path != DESTINATION
         and not is_ignored(path)
-        and path.suffix.lower() not in {".pyc", ".pyo", ".zip"}
+        and not path.name.lower().endswith(EXCLUDED_FILE_ENDINGS)
     )
     with DESTINATION.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(

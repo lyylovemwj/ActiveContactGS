@@ -1,0 +1,33 @@
+{
+  "results_root": "outputs/iclr-review-formal",
+  "main_runs": 12,
+  "generated": [
+    "action_selection_fingerprints.pdf",
+    "action_selection_fingerprints.png",
+    "action_selection_results.csv",
+    "coverage_controls.pdf",
+    "coverage_controls.png",
+    "eig_sample_results.csv",
+    "eig_sample_sensitivity.pdf",
+    "eig_sample_sensitivity.png",
+    "identifiability_boundary.pdf",
+    "identifiability_boundary.png",
+    "identifiability_results.csv",
+    "main_results_table.tex",
+    "model_mismatch.pdf",
+    "model_mismatch.png",
+    "model_mismatch_results.csv",
+    "per_task_distributions.pdf",
+    "per_task_distributions.png",
+    "per_task_results.csv",
+    "physical_response_atlas.pdf",
+    "physical_response_atlas.png",
+    "physical_response_trajectories.csv",
+    "representation_comparison.pdf",
+    "representation_comparison.png",
+    "representation_policy_results.csv",
+    "uncertainty_failure_landscape.pdf",
+    "uncertainty_failure_landscape.png"
+  ],
+  "documentation": "README.md"
+}

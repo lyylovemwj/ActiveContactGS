@@ -3,3 +3,4 @@
 
 # Treat these as binary and never modify.
 *.png binary
+*.pdf binary

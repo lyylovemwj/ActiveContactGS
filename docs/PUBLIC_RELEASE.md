@@ -2,7 +2,13 @@
 
 ## Lightweight repository
 
-This repository should remain code-only. Keep generated data, checkpoints, logs, result JSON/CSV files, and figures out of ordinary Git history.
+This repository should remain lightweight. Keep generated data, checkpoints,
+logs, and full result JSON files out of ordinary Git history.
+
+The bounded exception is `paper_assets/iclr_review/`: it contains the compact
+PNG/PDF figures, LaTeX table, and CSV sources needed to audit the ICLR reviewer
+experiments. Every file must remain below the repository size limit and be
+listed in both its local manifest and `REPOSITORY_MANIFEST.csv`.
 
 ## Archival artifacts
 

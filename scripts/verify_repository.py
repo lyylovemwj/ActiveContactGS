@@ -23,6 +23,7 @@ REQUIRED = (
 )
 FORBIDDEN_DIRECTORIES = {"checkpoints", "figures", "outputs", "results", "third_party"}
 FORBIDDEN_SUFFIXES = {".ckpt", ".gif", ".mp4", ".pdf", ".pt", ".pth", ".tar", ".tgz", ".zip"}
+REVIEW_ASSET_ROOT = "paper_assets/iclr_review/"
 TEXT_SUFFIXES = {".cff", ".csv", ".html", ".js", ".md", ".py", ".sh", ".toml", ".yaml", ".yml"}
 MANIFEST_TEXT_SUFFIXES = TEXT_SUFFIXES | {".txt"}
 MAX_FILE_BYTES = 5 * 1024 * 1024
@@ -78,7 +79,11 @@ def main() -> None:
         relative = path.relative_to(ROOT).as_posix()
         if path.stat().st_size > MAX_FILE_BYTES:
             errors.append(f"file exceeds 5 MiB: {relative}")
-        if path.suffix.lower() in FORBIDDEN_SUFFIXES:
+        allowed_review_pdf = (
+            relative.startswith(REVIEW_ASSET_ROOT)
+            and path.suffix.lower() == ".pdf"
+        )
+        if path.suffix.lower() in FORBIDDEN_SUFFIXES and not allowed_review_pdf:
             errors.append(f"forbidden binary/archive: {relative}")
         if path.suffix.lower() not in TEXT_SUFFIXES or path.name == "verify_repository.py":
             continue

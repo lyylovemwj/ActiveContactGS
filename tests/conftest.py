@@ -15,6 +15,7 @@ GPU_TEST_FILES = frozenset(
         "test_belief.py",
         "test_ellipsoid.py",
         "test_evaluate_amortized.py",
+        "test_evaluate_iclr.py",
         "test_experiment.py",
         "test_hypothesis.py",
         "test_identifiability.py",

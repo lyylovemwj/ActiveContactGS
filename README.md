@@ -20,7 +20,10 @@ ActiveContactGS studies active rigid-body system identification from object-cent
 - pose-observation and Gaussian-video posterior models;
 - ID/OOD evaluation, geometry ablations, identifiability analysis, YCB contact preparation, and PIN-WM reproduction helpers.
 
-This lightweight GitHub package contains code, reproduction instructions, and five figures extracted losslessly from the manuscript. It does not include checkpoints, generated datasets, raw experimental results, or logs.
+This lightweight GitHub package contains code, reproduction instructions, five
+figures extracted losslessly from the manuscript, and a compact ICLR reviewer
+asset snapshot. It does not include checkpoints, generated datasets, full raw
+result JSON files, or logs.
 
 ## Quick Start
 
@@ -87,6 +90,16 @@ Experiment entry points are intentionally GPU-only. Use `scripts/quickstart.py` 
 
 These are manuscript figures, not third-party illustrations. Their raw result files are intentionally kept outside the lightweight Git repository; the commands required to reproduce them are documented below. Figure provenance is recorded in [`assets/images/README.md`](assets/images/README.md).
 
+## ICLR reviewer experiment suite
+
+The independent 16-page ICLR reconstruction adds four posterior
+representations, composition/geometry OOD splits, model-mismatch and
+identifiability diagnostics, and a richer set of paper assets. See the
+[protocol and numerical results](docs/ICLR_REPRODUCTION.md) and the
+[claim-to-asset index](paper_assets/iclr_review/README.md). The asset snapshot
+includes vector PDF, PNG, LaTeX, and source CSV versions; full checkpoints and
+evaluation JSON files remain external.
+
 ## Full CUDA pipeline
 
 ```bash
@@ -129,6 +142,7 @@ scripts/                 Reproduction and external-asset helpers
 docs/                    Data, protocol, and reproducibility documentation
 assets/sources/          External-source provenance metadata
 assets/images/           Five losslessly extracted manuscript figures
+paper_assets/iclr_review/ ICLR review figures, tables, and source CSV files
 .github/                 CI and contribution templates
 ```
 
